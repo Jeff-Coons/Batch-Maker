@@ -1,0 +1,16 @@
+{
+  "name": "batch-maker",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "bourbon": "~4.0.2",
+    "neat": "~1.6.0",
+    "normalize-css": "~3.0.1",
+    "ember": "~1.7.0",
+    "ember-data": "1.0.0-beta.8",
+    "firebase": "~1.1.2",
+    "emberfire": "~1.2.7",
+    "refills": "~0.0.2",
+    "bitters": "~0.10.1"
+  }
+}

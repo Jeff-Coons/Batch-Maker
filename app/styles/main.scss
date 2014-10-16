@@ -1,0 +1,217 @@
+ // Bourbon & Neat
+@import '../../bower_components/bourbon/dist/bourbon';
+@import '../../bower_components/neat/app/assets/stylesheets/neat';
+@import '../../bower_components/bitters/app/assets/stylesheets/base';
+
+// ====================== Variables ====================== //
+
+$primary-font: "Lato", "Helvetica", "Arial", "san-serif";
+$primary-background-color: #eee;
+$tile-wxh: rem(150);
+
+// ====================== General ====================== //
+
+
+
+// ====================== Header ====================== //
+
+
+header {
+  @include linear-gradient(#efc259, #eeb030);
+  width: 100%;
+  box-shadow: 0 0 rem(10) #a5a5a5;
+  -webkit-box-shadow: 0 0 rem(15) #a5a5a5;
+
+  img {
+    display: block;
+    margin: 0 auto;
+    padding: rem(20) 0;
+  }
+}
+
+
+// ====================== Sidebar ====================== //
+
+
+.main-section {
+  @include outer-container;
+  max-width: 100%;
+}
+
+.sidebar {
+  @include span-columns(2);
+  height: 100vh;
+  font-family: $primary-font;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  ul {
+    list-style: none;
+    padding-left: 10%;
+  }
+
+  li {
+    border-bottom: #989898;
+    margin-bottom: rem(40);
+
+    &:first-child {
+      margin-top: rem(25);
+    }
+  }
+}
+
+
+// ====================== Content ====================== //
+
+
+.content {
+  @include span-columns(10);
+}
+
+.section-heading {
+  margin: rem(5);
+  font-family: $primary-font;
+  font-size: rem(16);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.section-container {
+  padding: rem(20);
+  border-bottom: solid 1px #eee;
+  margin-left: 2%;
+  margin-right: 10%;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.myrecipe-content-add {
+  display: inline-block;
+  background-color: $primary-background-color;
+  height: $tile-wxh;
+  width: $tile-wxh;
+  margin-bottom: $base-line-height;
+  cursor: pointer;
+
+  .hover-tile-container-add {
+    height: $tile-wxh;
+    overflow: hidden;
+  }
+
+  .hover-tile-container-add:hover > .hover-tile-add {
+    @include transform(translate(0, -100%));
+  }
+
+  .hover-tile-add {
+    @include transition(all, .2s ease-in-out);
+    background:inherit;
+    color: #fff;
+    height: $tile-wxh;
+    width: $tile-wxh;
+    padding: 25% rem(10);
+  }
+
+  .hover-tile-visible-add {
+    color: transparentize(white, .3);
+    font-size: 2em;
+    font-weight: 200;
+    text-align: center;
+  }
+
+  .hover-tile-hidden-add {
+    background: transparentize(black, .5);
+
+    h4 {
+      font-family: $primary-font;
+      font-size: rem(18);
+      font-weight: 400;
+      margin-bottom: .5em;
+    }
+
+    p {
+      font-family: $primary-font;
+      font-size: rem(14);
+      font-weight: 400;
+      color: transparentize(white, .3);
+    }
+  }
+
+  h1 {
+    font-family: $primary-font;
+    font-size: rem(18);
+    font-weight: 400;
+    color: #afafaf;
+    text-transform: uppercase;
+    padding: 0 rem(10) rem(10);
+  }
+
+  img {
+    width: 30%;
+  }
+}
+
+.recipe-content {
+  display: inline-block;
+  background-color: $primary-background-color;
+  height: $tile-wxh;
+  width: $tile-wxh;
+  margin-bottom: $base-line-height;
+  cursor: pointer;
+
+  .hover-tile-container {
+    height: $tile-wxh;
+    width: $tile-wxh;
+    overflow: hidden;
+  }
+
+  .hover-tile-container:hover > .hover-tile {
+    @include transform(translate(0, -100%));
+  }
+
+  .hover-tile {
+    @include transition(all, .2s ease-in-out);
+    background:inherit;
+    color: white;
+    height:inherit;
+    padding: 25% rem(10);
+  }
+
+  .hover-tile-visible {
+    color: transparentize(white, .3);
+    font-size: 2em;
+    font-weight: 200;
+    text-align: center;
+  }
+
+  .hover-tile-hidden {
+    background: transparentize(black, .5);
+
+    h4 {
+      font-family: $primary-font;
+      font-size: rem(18);
+      font-weight: 400;
+      margin-bottom: .5em;
+    }
+
+    p {
+      font-family: $primary-font;
+      font-size: rem(14);
+      font-weight: 400;
+      color: transparentize(white, .3);
+    }
+  }
+
+  h1 {
+    font-family: $primary-font;
+    font-size: rem(20);
+    font-weight: 400;
+    color: #afafaf;
+    text-transform: uppercase;
+    padding: rem(15) rem(10) rem(10);
+  }
+}
+
+
+// ====================== Public Recipes ====================== //
