@@ -4,28 +4,27 @@ BatchMaker.SignupController = Ember.Controller.extend({
   actions: {
     signup: function () {
       var self = this;
-      ref.createUser({
-        email: this.get('email'),
-        password: this.get('password')
-      }, function(error){
-        if (error === null) {
+      var credentials = this.getProperties('username', 'email', 'password');
+      ref.createUser(credentials, function(error){
+        if (!error) {
+          self.get('controllers.application').authenticate(credentials)
+          .then(function(authData){
+            var user = self.store.createRecord('user', {
+              id: authData.uid,
+              username: credentials.username,
+              email: credentials.email
+            });
+            user.save();
+          });
           $('#success').addClass('create-success');
           setTimeout(transition, 3000);
-
         } else {
-          console.log("Error creating user:", error);
           $('#fail').addClass('create-fail');
         }
 
         function transition () {
           self.transitionToRoute('login');
         }
-
-      });
-
-      var usersRef = ref.child('user');
-      usersRef.push({
-        name: this.get('name'),
       });
     },
 
