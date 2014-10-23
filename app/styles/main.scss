@@ -1,5 +1,6 @@
  // Bourbon & Neat
 @import '../../bower_components/bourbon/dist/bourbon';
+//@import '_grid-setting.scss';
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 @import '../../bower_components/bitters/app/assets/stylesheets/base';
 
@@ -11,6 +12,172 @@ $tile-wxh: rem(150);
 
 // ====================== General ====================== //
 
+
+body {
+  @include outer-container;
+  margin: 0;
+}
+
+.active {
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    color: #c1c1c1;
+  }
+}
+
+
+// ====================== Add Recipes ====================== //
+
+
+.wrapper-signup-login {
+  @include outer-container;
+  max-width: 100%;
+  float: none;
+  margin: 0 auto;
+  background-image: url('/images/Dufer_food_overhead.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.signup,
+.login {
+  @include span-columns(6);
+  @include shift(3);
+  padding: rem(30);
+  margin-top: 10%;
+  background-color: rgba(211, 211, 211, .5);
+  border-radius: rem(10);
+  -webkit-box-shadow: rem(2) rem(3) rem(10) #333;
+
+  img {
+    clear: both;
+    width: 40%;
+    margin-left: 31%;
+    padding: 0 0 rem(20);
+  }
+
+  .login-button {
+    float: right;
+    font-family: $primary-font;
+    font-size: rem(11);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 0;
+    background-color: #3284ad;
+
+    &:hover {
+      background-color: #28789b;
+    }
+
+    &:focus {
+      outline: 0;
+      -webkit-box-shadow: inset rem(.5) rem(.5) rem(1) #19556d;
+    }
+  }
+
+  input {
+    @include span-columns(6);
+    @include shift(3);
+    display: block;
+    border: 0;
+    font-family: $primary-font;
+    font-size: rem(14);
+    font-weight: 400;
+    margin-top: rem(10);
+    margin-bottom: rem(10);
+    x-webkit-box-shadow: inset rem(1) rem(1) rem(2) #999;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  .signup-button {
+    @include span-columns(4);
+    @include shift(4);
+    font-family: $primary-font;
+    font-size: rem(14);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: rem(15);
+    border-radius: 0;
+    background-color: #79c588;
+
+    &:hover {
+      background-color: #71bb7b;
+    }
+
+    &:focus {
+      -webkit-box-shadow: inset rem(.5) rem(.5) rem(2) #4e9856;
+      outline: 0;
+    }
+  }
+
+  .create-success,
+  .create-fail, {
+    @include span-columns(6);
+    @include shift(3);
+    text-align: center;
+    font-size: rem(14);
+    font-weight: 400;
+    color: #fff;
+    margin-top: rem(25);
+    margin-bottom: 0;
+  }
+
+  .need {
+    @include span-columns(6);
+    @include shift(3);
+    text-align: center;
+    font-size: rem(14);
+    font-weight: 400;
+    color: #000;
+    margin-top: rem(25);
+    margin-bottom: 0;
+
+    a {
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #f9f9f9;
+    }
+  }
+
+  .login-button-page {
+    @include span-columns(4);
+    @include shift(4);
+    font-family: $primary-font;
+    font-size: rem(14);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: rem(15);
+    border-radius: 0;
+    background-color: #3284ad;
+
+    &:hover {
+      background-color: #28789b;
+    }
+
+    &:focus {
+      outline: 0;
+      -webkit-box-shadow: inset rem(.5) rem(.5) rem(1) #19556d;
+    }
+  }
+}
 
 
 // ====================== Header ====================== //
@@ -33,21 +200,30 @@ header {
 // ====================== Sidebar ====================== //
 
 
-.main-section {
-  @include outer-container;
-  max-width: 100%;
-}
-
 .sidebar {
   @include span-columns(2);
-  height: 100vh;
   font-family: $primary-font;
-  font-weight: 700;
+  font-weight: 400;
   text-transform: uppercase;
+  background-color: #1e3f53;
+
+
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 25%;
+    padding: rem(20) rem(10);
+
+  }
+}
+
+#sidebar-container {
+  @include animation(scale 1s ease-in, slide 2s ease);
 
   ul {
     list-style: none;
-    padding-left: 10%;
+    padding: rem(10) 10% rem(40);
+    color: #fff;
   }
 
   li {
@@ -60,24 +236,41 @@ header {
   }
 }
 
+.hidden {
+  display: none;
+}
+
+.show-hidden {
+  display: block;
+}
+
 
 // ====================== Content ====================== //
 
 
 .content {
   @include span-columns(10);
+  margin-right: 0;
+
 }
 
-.section-heading {
-  margin: rem(5);
+.heading {
+  padding: rem(5) 0;
   font-family: $primary-font;
   font-size: rem(16);
   font-weight: 400;
   text-transform: uppercase;
+  max-width:95%;
+
+  .view-all {
+    margin-top: rem(6);
+    float: right;
+    font-size: rem(12);
+  }
 }
 
 .section-container {
-  padding: rem(20);
+  padding: rem(10);
   border-bottom: solid 1px #eee;
   margin-left: 2%;
   margin-right: 10%;
@@ -93,6 +286,7 @@ header {
   height: $tile-wxh;
   width: $tile-wxh;
   margin-bottom: $base-line-height;
+  margin-right: rem(5);
   cursor: pointer;
 
   .hover-tile-container-add {
@@ -158,6 +352,7 @@ header {
   height: $tile-wxh;
   width: $tile-wxh;
   margin-bottom: $base-line-height;
+  margin-right: rem(5);
   cursor: pointer;
 
   .hover-tile-container {
@@ -214,4 +409,196 @@ header {
 }
 
 
-// ====================== Public Recipes ====================== //
+// ====================== Add Recipes ====================== //
+
+
+.dropdown-container {
+  width: 200px;
+  display: inline-block;
+  //position: relative;
+
+  .dropdown-button {
+    float: left;
+    //display: inline-block;
+  }
+
+  .dropdown-button {
+    cursor: pointer;
+    //position: relative;
+
+    &:hover {
+      background-color: #f7f7f7;
+    }
+
+    &:after {
+      content: "\25BE";
+      display: block;
+    }
+  }
+
+  .recipe-type {
+    @include transition (all 0.2s ease-in-out);
+    box-shadow: 0 2px 2px transparentize(black, .8);
+    cursor: pointer;
+    display: none;
+    overflow: show;
+
+    &::before {
+      content: "\25b2";
+      pointer-events: none;
+      text-shadow: 0 -2px 2px transparentize(black, .7);
+    }
+  }
+
+  .show-content {
+    display: block;
+  }
+}
+
+.wrapper {
+  @include span-columns(10);
+  @include outer-container
+}
+
+.page-heading {
+  @include span-columns(8);
+  @include shift(1);
+  margin-top: rem(20);
+  margin-bottom: rem(20);
+}
+
+.add-recipe {
+  @include span-columns(8);
+  @include shift(1);
+  margin-bottom: rem(100);
+
+  .add-image {
+    display: inline-block;
+    background-color: $primary-background-color;
+    height: $tile-wxh;
+    @include span-columns(3);
+    margin-bottom: rem(30);
+    margin-right: 0;
+    text-align: center;
+    border-radius: rem(3);
+    box-shadow: rem(1) rem(1) rem(1) #f7f7f7;
+
+    img {
+      width: 20%;
+      margin-top: 20%;
+    }
+
+    h1 {
+      font-family: $primary-font;
+      font-size: rem(20);
+      font-weight: 400;
+      color: #afafaf;
+      text-transform: uppercase;
+      padding: rem(5) rem(10);
+    }
+  }
+
+  .recipe-name {
+    @include span-columns(9);
+    margin-right: 0;
+    margin-left: 2.25%;
+
+    input {
+      height: rem(50);
+    }
+  }
+
+  .checkbox {
+    @include span-columns(8);
+    margin-right: 0;
+    margin-left: 2.25%;
+
+    label {
+      @include span-columns(4);
+    }
+  }
+
+  .type-time-temp {
+    @include span-columns(12);
+    margin-bottom: rem(20);
+
+    select {
+      @include span-columns(3);
+    }
+
+    input {
+      display: inline-block;
+      @include span-columns(3)
+    }
+
+    .recipe-type,
+    .cook-temp {
+      @include span-columns(3);
+      height: rem(35);
+      padding: 5% rem(10);
+      cursor: pointer;
+      border: 0;
+      border-radius: rem(3);
+      box-shadow: rem(2) rem(2) rem(3) #eee;
+
+      &:hover {
+        background-color: #f7f7f7;
+      }
+
+      &:focus {
+        outline: 0;
+      }
+
+      svg {
+        margin-left: 25%;
+        width: 12px;
+      }
+    }
+  }
+
+  .amount {
+    @include span-columns(12);
+    margin-bottom: rem(20);
+
+    label {
+      @include span-columns(3);
+    }
+
+    input {
+      @include span-columns(6);
+    }
+
+    #amount {
+      @include span-columns(3);
+    }
+  }
+
+  .steps {
+    @include span-columns(12);
+    padding-top: rem(15);
+    padding-bottom: rem(20);
+    border-top: solid 1px #eee;
+    border-bottom: solid 1px #eee;
+
+    button {
+      float: right;
+    }
+  }
+
+  .notes {
+    @include span-columns(12);
+    padding-top: rem(15);
+    padding-bottom: rem(20);
+
+    textarea {
+      @include span-columns(12);
+      resize: none;
+      height: rem(200);
+      margin: rem(20) 0;
+    }
+  }
+
+  .save {
+    float: right;
+  }
+}
