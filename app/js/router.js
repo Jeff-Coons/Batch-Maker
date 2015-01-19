@@ -16,14 +16,7 @@ Routes:
 
 ====================================== */
 
-BatchMaker.IndexRoute = Ember.Route.extend({
-  redirect: function () {
-    this.transitionTo('signup');
-  }
-});
-
 BatchMaker.Router.map(function () {
-  this.route('index', {path: '/'});
   this.route('home', {path: '/home'});
   this.route('signup');
   this.route('login');

@@ -1,23 +1,16 @@
 BatchMaker.LoginController = Ember.Controller.extend({
   needs: ['application'],
+  currentUser: Ember.computed.alias('controllers.application.currentUser'),
 
   actions: {
     login: function(){
-      var self = this;
-      var credentials = this.getProperties('email', 'password');
-      ref.authWithPassword(credentials, function(error, authData){
-        if (error === null) {
-          self.get('controllers.application').authenticate(credentials);
-          setTimeout(transition, 2000);
-        } else {
-          console.log("Error authenticating user:", error);
-          $('#login-fail').addClass('create-fail');
-        }
-      });
-
-      function transition () {
+			var self = this;
+			var credentials = this.getProperties('email', 'password');
+			var user = this.get('controllers.application.currentUser');
+			this.get('controllers.application').authenticate(credentials).then(function(){
+				var user = self.get('controllers.application.currentUser');
         self.transitionToRoute('home');
-      }
-    }
+      });
+		}
   }
 });

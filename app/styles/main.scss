@@ -16,6 +16,7 @@ $tile-wxh: rem(150);
 body {
   @include outer-container;
   margin: 0;
+  max-width: 100%;
 }
 
 .active {

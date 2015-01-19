@@ -32,7 +32,7 @@
             {{input type="password" value=password placeholder="Password"}}
             <button class=login-button-page {{action 'login'}}>Login</button>
             <p class="need">If you need an account you can sign up {{#link-to 'signup'}}here{{/link-to}}.</p>
-            <p class="hidden" id="login-fail">Your login has failed, please try again.</p>
+            <p class="hidden" id="login-fail">Invalid password, please try again.</p>
           </form>
         </div>
       </div>
@@ -48,23 +48,25 @@
           </div>
 
           <form>
-            {{input type="text" value=username name="username" placeholder="Username"}}
-            {{input type="email" value=email name="email" placeholder="Email"}}
-            {{input type="password" value=password password="password" placeholder="Password"}}
+            {{input type="text" value=username placeholder="Username"}}
+            {{input type="email" value=email placeholder="Email"}}
+            {{input type="password" value=password placeholder="Password"}}
             <button class="signup-button"{{action "signup"}}>Submit</button>
-            <p class="hidden" id="success">Your account has been created. Please login on the next screen.</p>
-            <p class="hidden" id="fail">There was a problem creating your account. Please try again.</p>
           </form>
         </div>
       </div>
     </script>
 
 
-    <script type="text/x-handlebars" data-template-name="home">
+<!--     <script type="text/x-handlebars" data-template-name="home">
+
+  {{outlet}}
+</script> -->
+
+    <script type="text/x-handlebars" data-template-name="index">
       <header>{{#link-to 'home'}}<img src="images/Batch_Maker_Logo.png">{{/link-to}}</header>
       <div class="sidebar">
-        <img src="images/menu.png" class="menu"/>
-        <div id="sidebar-container" class="hidden">
+        <div id="sidebar-container">
           <ul>
             <li>My Recipes</li>
             {{#link-to 'recipes.public'}}<li>Public Recipes</li>{{/link-to}}
@@ -74,472 +76,472 @@
           </ul>
         </div>
       </div>
-      {{outlet}}
+        {{outlet}}
     </script>
 
-    <script type="text/x-handlebars" data-template-name="content">
-        <div class="content">
+    <script type="text/x-handlebars" data-template-name="home">
+      <div class="content">
 
-          <div class="section-container"><!-- my-recipes -->
-            <div class="heading">
-              <span class="section-heading">My Recipes</span>
-              <span class="view-all">View All</span>
+        <div class="section-container"><!-- my-recipes -->
+          <div class="heading">
+            <span class="section-heading">My Recipes</span>
+            <span class="view-all">View All</span>
+          </div>
+          <div class="myrecipe-content-add"><!--my recipe content-->
+
+            <div class="hover-tile-container-add">
+
+              <div class="hover-tile-add hover-tile-visible-add">
+                <h1>Add Recipe</h1>
+                <img src="images/add.png"/>
+              </div>
+
+              <div class="hover-tile-add hover-tile-hidden-add">
+              {{#link-to 'recipes.new'}}
+                <h4>Add Recipe</h4>
+                <p>Add a recipe to your collection.</p>
+              {{/link-to}}
+              </div>
+
             </div>
-            <div class="myrecipe-content-add"><!--my recipe content-->
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
 
-              <div class="hover-tile-container-add">
-
-                <div class="hover-tile-add hover-tile-visible-add">
-                  <h1>Add Recipe</h1>
-                  <img src="images/add.png"/>
-                </div>
-
-                <div class="hover-tile-add hover-tile-hidden-add">
-                {{#link-to 'recipes.new'}}
-                  <h4>Add Recipe</h4>
-                  <p>Add a recipe to your collection.</p>
-                {{/link-to}}
-                </div>
-
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
               </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
 
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
               </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
 
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
-              </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
-
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
-              </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
-
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
-              </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
-
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
-              </div>
-            </div><!--end of my recipe content-->
-          </div><!-- end of my-recipes -->
-
-          <div class="section-container"><!-- public-recipes -->
-            <div class="heading">
-              <span class="section-heading">Public Recipes</span>
-              <span class="view-all">View All</span>
             </div>
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
 
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
               </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
 
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
               </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
 
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
-              </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
-
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
-              </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
-
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
-              </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
-
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
-              </div>
-            </div><!--end of my recipe content-->
-          </div><!-- end of public-recipes -->
-
-          <div class="section-container"><!-- popular-recipes -->
-            <div class="heading">
-              <span class="section-heading">Popular Recipes</span>
-              <span class="view-all">View All</span>
             </div>
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
 
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
               </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
 
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
               </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
 
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
-              </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
-
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
-              </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
-
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
-              </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
-
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
-              </div>
-            </div><!--end of my recipe content-->
-          </div><!-- end of popular-recipes -->
-
-          <div class="section-container"><!-- favorite-recipes -->
-            <div class="heading">
-              <span class="section-heading">My Favorite Recipes</span>
-              <span class="view-all">View All</span>
             </div>
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
 
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
               </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
 
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
               </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
 
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
-              </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
-
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
-              </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
-
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
-              </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
-
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
-              </div>
-            </div><!--end of my recipe content-->
-          </div><!-- end of favorite-recipes -->
-
-          <div class="section-container"><!-- pantry -->
-            <div class="heading">
-              <span class="section-heading">My Pantry</span>
-              <span class="view-all">View All</span>
             </div>
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
 
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
               </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
 
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
               </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
 
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
+            </div>
+          </div><!--end of my recipe content-->
+        </div><!-- end of my-recipes -->
 
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
+        <div class="section-container"><!-- public-recipes -->
+          <div class="heading">
+            <span class="section-heading">Public Recipes</span>
+            <span class="view-all">View All</span>
+          </div>
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
 
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
               </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
 
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
               </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
 
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
 
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
               </div>
-            </div><!--end of my recipe content-->
-            <div class="recipe-content"><!--my recipe content-->
-              <div class="hover-tile-container">
 
-                <div class="hover-tile hover-tile-visible">
-                  <h1>Recipe Name</h1>
-                </div>
-
-                <div class="hover-tile hover-tile-hidden">
-                  <h4>Recipe Name</h4>
-                  <p>Breif Description of recipe.</p>
-                </div>
-
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
               </div>
-            </div><!--end of my recipe content-->
-          </div><!-- end of pantry -->
 
-        </div>
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+        </div><!-- end of public-recipes -->
+
+        <div class="section-container"><!-- popular-recipes -->
+          <div class="heading">
+            <span class="section-heading">Popular Recipes</span>
+            <span class="view-all">View All</span>
+          </div>
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+        </div><!-- end of popular-recipes -->
+
+        <div class="section-container"><!-- favorite-recipes -->
+          <div class="heading">
+            <span class="section-heading">My Favorite Recipes</span>
+            <span class="view-all">View All</span>
+          </div>
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+        </div><!-- end of favorite-recipes -->
+
+        <div class="section-container"><!-- pantry -->
+          <div class="heading">
+            <span class="section-heading">My Pantry</span>
+            <span class="view-all">View All</span>
+          </div>
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+          <div class="recipe-content"><!--my recipe content-->
+            <div class="hover-tile-container">
+
+              <div class="hover-tile hover-tile-visible">
+                <h1>Recipe Name</h1>
+              </div>
+
+              <div class="hover-tile hover-tile-hidden">
+                <h4>Recipe Name</h4>
+                <p>Breif Description of recipe.</p>
+              </div>
+
+            </div>
+          </div><!--end of my recipe content-->
+        </div><!-- end of pantry -->
+
+      </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="recipes/new">
@@ -609,6 +611,9 @@
       </div>
     </script>
 
+
+
+
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
@@ -624,11 +629,13 @@
         <!-- build:js scripts/main.js -->
         <script src="js/application.js"></script>
         <script src="js/router.js"></script>
+        <script src="js/routes/application_routes.js"></script>
         <script src="js/controllers/application_controller.js"></script>
         <script src="js/controllers/signup_controller.js"></script>
         <script src="js/controllers/login_controller.js"></script>
+        <script src="js/controllers/recipes_new.js"></script>
         <script src="js/models/batch_user.js"></script>
-        <script src="js/main.js"></script>
+        <script src="js/models/recipes_user.js"></script>
         <!-- endbuild -->
 </body>
 </html>
